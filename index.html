@@ -228,21 +228,50 @@
     gap: 16px;
   }
 
-  .lineup-grid .card {
+  .band-card {
+    background: transparent;
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    padding: 16px;
     text-align: center;
-    padding: 24px 16px;
-  }
-
-  .lineup-grid .card strong {
+    cursor: pointer;
+    width: 100%;
+    font-family: inherit;
+    color: inherit;
     display: block;
-    font-size: 16px;
-    margin-bottom: 4px;
   }
 
-  .lineup-grid .card span {
+  .band-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .band-card strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 14px;
+  }
+
+  .band-bio {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, margin-top 0.3s ease;
+  }
+
+  .band-card.open .band-bio {
+    max-height: 200px;
+    margin-top: 12px;
+  }
+
+  .band-bio p {
     font-size: 13px;
     font-weight: 500;
-    opacity: 0.75;
+    line-height: 1.5;
+    text-align: left;
   }
 
   footer {
@@ -361,14 +390,37 @@
   <section id="lineup">
     <h2>Lineup</h2>
     <div class="lineup-grid">
-      <div class="card">
-        <strong>Band name</strong>
-        <span>Stage time</span>
-      </div>
-      <div class="card">
-        <strong>Band name</strong>
-        <span>Stage time</span>
-      </div>
+      <button class="band-card" type="button">
+        <img src="band1.jpg" alt="Antti Ahoniemi Trio">
+        <strong>Antti Ahoniemi Trio</strong>
+        <div class="band-bio">
+          <p>Helsinkiläinen piano-trio, joka yhdistää perinteistä jazzia ja tuoreita omia sävellyksiä. Antti Ahoniemen johdolla yhtye on tunnettu energisistä livekeikoistaan.</p>
+        </div>
+      </button>
+
+      <button class="band-card" type="button">
+        <img src="band2.jpg" alt="Siina Suutarinen Super Sonic feat. Oona Mattsson">
+        <strong>Siina Suutarinen Super Sonic feat. Oona Mattsson</strong>
+        <div class="band-bio">
+          <p>Siina Suutarisen kokoonpano tuo lavalle raikkaan sekoituksen jazzia, soulia ja funkia. Vierailevana solistina mukana laulaja Oona Mattsson.</p>
+        </div>
+      </button>
+
+      <button class="band-card" type="button">
+        <img src="band3.jpg" alt="Mubba and The Afrotan">
+        <strong>Mubba and The Afrotan</strong>
+        <div class="band-bio">
+          <p>Afrobeat-vaikutteinen yhtye, joka yhdistää rytmikkäät groovet ja jazz-improvisaation. Taattu tanssittaja tapahtuman iltapäivään.</p>
+        </div>
+      </button>
+
+      <button class="band-card" type="button">
+        <img src="band4.jpg" alt="Kadi Vija">
+        <strong>Kadi Vija</strong>
+        <div class="band-bio">
+          <p>Kadi Vija päättää illan omaperäisellä, tunnelmallisella setillä, jossa yhdistyvät jazzin juuret ja moderni sointimaailma.</p>
+        </div>
+      </button>
     </div>
   </section>
 </main>
@@ -390,6 +442,12 @@
     link.addEventListener('click', () => {
       nav.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.querySelectorAll('.band-card').forEach(card => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('open');
     });
   });
 </script>
