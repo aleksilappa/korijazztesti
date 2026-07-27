@@ -173,11 +173,16 @@
   }
 
   .card {
-    background: transparent;
-    border: 2px solid var(--ink);
-    border-radius: 16px;
-    padding: 28px;
-  }
+  background: transparent;
+  border: 2px solid var(--ink);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.no-border {
+  border: none;
+  padding: 0;
+}
 
   .schedule-list {
     list-style: none;
@@ -275,7 +280,7 @@
   }
 
   .info-text {
-    font-size: 15px;
+    font-size: clamp(15px, 2.4vw, 19px);
     font-weight: 500;
     line-height: 1.6;
     text-align: left;
@@ -446,7 +451,7 @@ Joonas Leppä, drums
 
   <section id="basketball">
     <h2>Basketball</h2>
-    <div class="card">
+    <div class="card no-border">
       <p class="info-text">Kentälle voi tulla pelaamaan vapaasti koko päivän ajan &mdash; ei ennakkoilmoittautumista, ei omaa joukkuetta tarvita. Peleihin jaetaan mukaan paikan päällä, ja mukaan pääsee niin aloittelija kuin konkarikin. Ota vain omat kengät mukaan, koripallot löytyvät paikan päältä.</p>
     </div>
   </section>
